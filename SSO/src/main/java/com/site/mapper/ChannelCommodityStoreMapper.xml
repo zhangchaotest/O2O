@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.site.mapper.ChannelCommodityStoreMapper">
+
+	<resultMap type="com.site.model.ChannelCommodityStore" id="ChannelCommodityStore">
+		<result property="innerCommodityId" column="InnerCommodityId"/>
+		<result property="SalePrice" column="SalePrice"/>
+		<result property="OriginalPrice" column="OriginPrice"/>
+		<result property="StoreCode" column="StoreCode"/>
+		<result property="ChannelCode" column="ChannelCode"/>
+		<result property="disabled" column="Disabled"/>
+		<result property="isShelf" column="IsShelf"/>
+		<result property="ChannelStoreId" column="ChannelStoreMappingId"/>
+		<result property="OutCommodityCode" column="OutCommodityCode"/>
+		<result property="CommodityCode" column="CommodityCode"/>
+	</resultMap>
+	
+	<select id="getCommodityPrice" parameterType="String" resultMap="ChannelCommodityStore">
+		SELECT * FROM dbo.Rel_ChannelStoreCommodity where CommodityCode= #{0} and ChannelCode='1100000043' and StoreCode=#{1} and disabled=0;
+	</select>
+	
+</mapper>

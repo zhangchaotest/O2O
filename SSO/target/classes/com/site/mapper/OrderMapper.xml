@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.site.mapper.OrderMapper">
+
+	<resultMap type="com.site.model.Order" id="Order">
+		<result property="serialNumber" column="CommodityCode"/>
+		<result property="storeCode" column="StoreCode"/>
+		<result property="orderId" column="OrderId"/>
+	</resultMap>
+	
+	<select id="getSerialNumber" parameterType="String"  resultMap="Order">
+		   SELECT * FROM dbo.Fct_Order WHERE OrderId= #{0};
+	</select>
+	
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.site.mapper.CommodityMapper">
+
+	<resultMap type="com.site.model.Commodity" id="Commodity">
+		<result property="commodityCode" column="CommodityCode"/>
+		<result property="commodityName" column="CommodityName"/>
+		<result property="commodityId" column="CommodityId"/>
+		<result property="innerCommodityId" column="InnerCommodityId"/>
+		<result property="isShelf" column="IsShelf"/>
+		<result property="disabled" column="Disabled"/>
+		
+	</resultMap>
+	
+	<select id="getCommodityId" parameterType="String"  resultMap="Commodity">
+		SELECT * FROM dbo.Fct_Commodity where CommodityCode= #{CommodityCode} and disabled=0;
+	</select>
+	
+</mapper>
